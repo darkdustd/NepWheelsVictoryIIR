@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '/Users/saitohiraga/NepWheels_RomVersion/src/app/services/message.service';
+import { MessageService } from '../services/message.service';
+import { RentService } from '../services/rent.service';
+import { NgForm } from '@angular/forms';
+import { Rent } from '../models/rent';
 
 @Component({
   selector: 'app-payment',
@@ -8,7 +11,7 @@ import { MessageService } from '/Users/saitohiraga/NepWheels_RomVersion/src/app/
 })
 export class PaymentComponent implements OnInit {
 
-  constructor(public _MessageService: MessageService) {
+  constructor(public _MessageService: MessageService, private rentService: RentService) {
   }
   contactForm(form) {
     this._MessageService.sendMessage(form).subscribe(() => {
@@ -17,7 +20,20 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.rentService.getRents();
+    this.resetForm();
   }
 
-  
+  onSubmit(rentForm: NgForm){
+    this.rentService.insertRent(rentForm.value);
+    this.resetForm(rentForm);
+  }
+
+  resetForm(rentForm?: NgForm){
+    if(rentForm != null)
+    rentForm.reset();
+    this.rentService.selectRent = new Rent();
+  }
+
+
 }

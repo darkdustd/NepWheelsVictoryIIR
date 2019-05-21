@@ -18,6 +18,16 @@ import { PaymentComponent } from './payment/payment.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from './services/message.service';
+import { RentService } from './services/rent.service';
+
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { SigninComponent } from './signin/signin.component';
+export const firebaseConfig = environment.firebaseConfig;
+import { AngularFireAuth } from '@angular/fire/auth';
+import { ParkingAdminComponent } from './parking-admin/parking-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,18 +40,23 @@ import { MessageService } from './services/message.service';
     AdminComponent,
     ReserveComponent,
     MapComponent,
-    PaymentComponent
+    PaymentComponent,
+    GoogleMapComponent,
+    SigninComponent,
+    ParkingAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     AgmCoreModule.forRoot({
       apiKey: ''
     })
   ],
-  providers: [MessageService],
+  providers: [MessageService, AngularFireAuth, RentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

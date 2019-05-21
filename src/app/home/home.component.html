@@ -55,7 +55,7 @@
           <div class="card-body">
             <h5 class="card-title">Renta de vehiculos</h5>
             <p class="card-text">Tenemos vehiculos de todo tipo disponibles desde patinetas hasta automoviles. Elige tu medio de transporte favorito y rentalo ya.</p>
-            <a href="../Rent" class="btn btn-primary">Rentar un vehiculo</a>
+            <a href="../Rent" class="btn btn-primary" *ngIf="isLogged">Rentar un vehiculo</a>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
           <div class="card-body">
             <h5 class="card-title">Reserva de vehiculos</h5>
             <p class="card-text">Si no necesitas nuestros servicios en este momento puedes reservar un vehiculo para tenerlo disponible en el momento que lo necesites.</p>
-            <a href="../Reserve" class="btn btn-primary">Reservar un vehiculo</a>
+            <a href="../Reserve" class="btn btn-primary" *ngIf="isLogged">Reservar un vehiculo</a>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
           <div class="card-body">
             <h5 class="card-title">Puntos asociados</h5>
             <p class="card-text">Puedes ver todos los puntos asociado a esta aplicación. Elige el punto más conveniente para rentar tu vehiculo.                  <br>     <br></p>
-            <a href="../Map" class="btn btn-primary">Ver los puntos asociados</a>
+            <a href="../Map" class="btn btn-primary" *ngIf="isLogged">Ver los puntos asociados</a>
           </div>
         </div>
       </div>
@@ -134,6 +134,3 @@
   </div>
 
 </main>
-
-
-

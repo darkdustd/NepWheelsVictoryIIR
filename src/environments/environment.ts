@@ -3,8 +3,23 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+   firebaseConfig: {
+     apiKey: "AIzaSyC9-Ejts8-5A9rAh5smxQUDbWjmCMkzj5E",
+     authDomain: "nepwheelsviir-633bc.firebaseapp.com",
+     databaseURL: "https://nepwheelsviir-633bc.firebaseio.com",
+     projectId: "nepwheelsviir-633bc",
+     storageBucket: "nepwheelsviir-633bc.appspot.com",
+     messagingSenderId: "511171049621",
+     appId: "1:511171049621:web:29678b28b28ec197"
+   },
+
+  googleMapsKey: ''
+
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

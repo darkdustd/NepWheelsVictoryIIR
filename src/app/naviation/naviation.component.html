@@ -7,37 +7,41 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="../Home">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="../Rent">Rentar</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link " href="../Reserve">Reservar</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../Map">Mapa</a>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" href="../GM">Mapa</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" href="../Admin">Administrador</a>
       </li>
-
     </ul>
 
 
-    <form class="form-inline my-2 my-lg-0">
+<form class="form-inline my-2 my-lg-0">
 
-        <a class="nav-link" href="../Login">Login</a>
+        <a class="btn btn-outline-primary" *ngIf="!isLogged" href="../Login">Log in</a>
 
 
-        <a class="nav-link" href="../Home">Logout</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="btn btn-outline-success" *ngIf="!isLogged" href="../Signin">Sign in</a>
 
-    </form>
+
+
+  <a href="#" *ngIf="isLogged" class="btn btn-outline-light my-2 my-sm-0" (click)="onLogout()">Log out
+    </a>
+
+      </form>
+
+
+
   </div>
 </nav>
-
-
-
-

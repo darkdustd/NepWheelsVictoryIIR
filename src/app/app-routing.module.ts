@@ -8,6 +8,9 @@ import {AdminComponent} from './admin/admin.component';
 import {ReserveComponent} from './reserve/reserve.component';
 import {MapComponent} from './map/map.component';
 import {PaymentComponent} from './payment/payment.component';
+import {GoogleMapComponent} from './google-map/google-map.component';
+import {SigninComponent} from './signin/signin.component';
+import { ParkingAdminComponent } from './parking-admin/parking-admin.component';
 
 const routes: Routes = [
 
@@ -19,6 +22,9 @@ const routes: Routes = [
   {path: 'Reserve', component: ReserveComponent},
   {path: 'Map', component: MapComponent},
   {path: 'Pay', component: PaymentComponent},
+  {path: 'GM', component: GoogleMapComponent},
+  {path: 'Signin', component: SigninComponent},
+  {path: 'parkingAdmin', component: ParkingAdminComponent},
   {path: '**', component: NerrpComponent}
 ];
 

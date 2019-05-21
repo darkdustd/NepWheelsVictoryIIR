@@ -2,25 +2,27 @@
 <h2>Formulario de pago</h2>
   <br>
   <form class="was-validated">
-<form (ngSubmit)="contactForm(form.value)" #form="ngForm">
+<form (ngSubmit)="contactForm(form.value)" (ngSubmit)="onSubmit(rentForm)" #rentForm="ngForm" #form="ngForm">
 
 
   <div class="form-row">
     <div class="col-md-6 mb-3">
       <label for="validationDefault01">Nombre</label>
-    <input type="text" class="form-control" name="nombre" ngModel id="validationDefault01" placeholder="Tu Nombre" required minlength="3">
+    <input type="text" class="form-control" name="nombre" #name="ngModel" [(ngModel)]="rentService.selectRent.nombre" id="validationDefault01" value="Neptune" placeholder="Neptune" required>
     </div>
 
     <div class="col-md-6 mb-3">
       <label for="validationDefault02">Apellido</label>
-    <input type="text" class="form-control" name="asunto" ngModel id="validationDefault02" placeholder="Tu Apellido" required minlength="3">
+    <input type="text" class="form-control" name="asunto" #name="ngModel" ngModel id="validationDefault02" value="Pudding" placeholder="Pudding" >
     </div>
   </div>
 
 
+
+
   <div class="form-group">
     <label for="validationDefault05">Email</label>
-    <input type="email" class="form-control" name="email" ngModel id="validationDefault05" placeholder="Tu Email" required>
+    <input type="email" class="form-control" name="email" ngModel id="validationDefault05" value="darkdustd@hotmail.com" >
   </div>
 
 
@@ -29,7 +31,7 @@
   <div class="form-row">
     <div class="col-md-12 mb-3">
       <label for="validationDefault03">Direccion</label>
-      <input type="text" class="form-control" id="validationDefault03" placeholder="Tu Dirección" required>
+      <input type="text" class="form-control" name="accesories" #name="ngModel" [(ngModel)]="rentService.selectRent.accesories" id="validationDefault03" placeholder="Tu Dirección" required>
     </div>
   </div>
 
@@ -37,7 +39,7 @@
   <div class="form-row">
     <div class="col-md-12 mb-3">
       <label for="validationDefault04">Direccion 2 <span class="text-muted">(Opcional)</span></label>
-      <input type="text" class="form-control" id="validationDefault04" placeholder="Tu Dirección" >
+      <input type="text" class="form-control" name="vehicle" [(ngModel)]="rentService.selectRent.vehicle id="validationDefault04" placeholder="Tu Dirección" >
     </div>
   </div>
 
@@ -126,3 +128,27 @@
     </div>
   </div>
 </div>
+
+
+
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
